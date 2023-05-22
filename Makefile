@@ -1,0 +1,18 @@
+BREW := brew
+BREW_GUARD  := $(shell command -v ${BREW} 2> /dev/null)
+
+.PHONY: check-brew
+check-brew: ## Check if brew is installed 🍺
+	@echo "+ $@"
+ifndef BREW_GUARD
+	$(error "brew is not available please install it")
+endif
+	@echo "Found ${BREW} ✔️"
+
+.PHONY: setup-local-env
+setup-local-env:
+	@echo "---------- installing tfenv -----------" 
+	@brew install tfenv
+	@echo "-------- installing terraform ---------"
+	@tfenv install
+	@echo "---- done installing requirements -----"
