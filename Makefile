@@ -16,3 +16,16 @@ setup-local-env:
 	@echo "-------- installing terraform ---------"
 	@tfenv install
 	@echo "---- done installing requirements -----"
+
+
+.PHONY: whats-my-ip
+whats-my-ip:
+	@curl ifconfig.me
+
+.PHONY: tf-init
+tf-init:
+	@terraform init
+
+.PHONY: tf-plan
+tf-plan:
+	@terraform plan
