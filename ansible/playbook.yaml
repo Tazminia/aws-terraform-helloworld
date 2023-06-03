@@ -33,3 +33,10 @@
           - docker-ce
         state: latest
         update_cache: true
+
+    - name: Create mockserver container
+      docker_container:
+        name: mockserver
+        image: mockserver/mockserver
+        state: started
+        detach: true
