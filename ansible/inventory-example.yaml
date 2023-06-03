@@ -1,0 +1,5 @@
+all:
+  hosts:
+    # You can run "make get-ec2-dns-name"
+    replace-with-public-dns-name-of-ec2-instance:
+
