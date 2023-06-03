@@ -8,7 +8,7 @@ This is a small terraform project to create simple resources on aws
 
 This repository uses terraform and tfenv.
 
-For MacOs users, run `make setup-local-env`.
+For MacOs users, run `make setup-terraform`.
 
 ### Authentication
 
@@ -24,3 +24,34 @@ $ touch $HOME/.aws/credentials
 aws_access_key_id = insert-access-key-id-here
 aws_secret_access_key = insert-secret-access-key-here
 ```
+
+## EC2 instance configuration
+
+Once the EC2 instance is ready ansible is used to install docker and docker compose.
+
+One possible solution to use ansible is as a python package in a virtual environment:
+
+```bash
+$ make setup-venv
+$ . .venv/bin/activate
+$ pip install "ansible==8.0.0"
+```
+
+### Inventory file
+
+Ansible requires an inventory file that can be found at `ansible/inventory.yaml`.
+
+The command `make get-ec2-dns-name` is available to get the public dns name of the created ec2 instance.
+
+### Run ansible
+
+The following environment variables have to be setup:
+
+* $SSH_KEY_LOCATION: full path to the private ssh key to be used to connect to ec2 (defaults to ${HOME}/.ssh/helloworld-poc.pem).
+
+Run ansible as follows:
+
+```bash
+$ make setup-ec2-instance
+```
+

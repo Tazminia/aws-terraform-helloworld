@@ -12,7 +12,6 @@ resource "aws_instance" "helloworld" {
 
   iam_instance_profile = aws_iam_instance_profile.helloworld_poc_role_instance.id
 
-
   tags = {
     app         = "HelloWorld"
     environment = "development"
