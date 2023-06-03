@@ -34,9 +34,10 @@
         state: latest
         update_cache: true
 
-    - name: Create mockserver container
+    - name: Create 2 mockserver containers
       docker_container:
-        name: mockserver
+        name: "mockserver-{{ item }}"
         image: mockserver/mockserver
         state: started
         detach: true
+      with_sequence: count=2
