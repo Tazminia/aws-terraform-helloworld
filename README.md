@@ -47,7 +47,7 @@ The command `make get-ec2-dns-name` is available to get the public dns name of t
 
 The following environment variables have to be setup:
 
-* $SSH_KEY_LOCATION: full path to the private ssh key to be used to connect to ec2 (defaults to ${HOME}/.ssh/helloworld-poc.pem).
+* `$SSH_KEY_LOCATION`: full path to the private ssh key to be used to connect to ec2 (defaults to `${HOME}/.ssh/helloworld-poc.pem`).
 
 Run ansible as follows:
 
